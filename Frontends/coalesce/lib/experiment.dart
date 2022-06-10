@@ -1,44 +1,60 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_web3/flutter_web3.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:web3dart/web3dart.dart';
+// import 'package:http/http.dart';
 
-class MetaMaskProvider extends ChangeNotifier {
-  static const operatingChain = 4;
+// class MetaMaskProvider extends ChangeNotifier {
+//   late Client httpClient;
 
-  String currentAddress = '';
+//   late Web3Client ethClient;
 
-  int currentChain = -1;
+//   //Ethereum address
+//   final String myAddress = "0x8fF1b659bDC9D6eF5d99823B155cfdf47eF2944d";
 
-  bool get isEnabled => ethereum != null;
+//   //url from Infura
+//   final String blockchainUrl =
+//       "https://rinkeby.infura.io/v3/4e577288c5b24f17a04beab17cf9c959";
 
-  bool get isInOperatingChain => currentChain == operatingChain;
+//   //strore the value of alpha and beta
+//   var totalVotesA;
+//   var totalVotesB;
 
-  bool get isConnected => isEnabled && currentAddress.isNotEmpty;
+//   static const operatingChain = 4;
 
-  Future<void> connect() async {
-    if (isEnabled) {
-      final accs = await ethereum!.requestAccount();
-      if (accs.isNotEmpty) currentAddress = accs.first;
+//   String currentAddress = '';
 
-      currentChain = await ethereum!.getChainId();
+//   int currentChain = -1;
 
-      notifyListeners();
-    }
-  }
+//   bool get isEnabled => ethereum != null;
 
-  clear() {
-    currentAddress = '';
-    currentChain = -1;
-    notifyListeners();
-  }
+//   bool get isInOperatingChain => currentChain == operatingChain;
 
-  init() {
-    if (isEnabled) {
-      ethereum!.onAccountsChanged((accounts) {
-        clear();
-      });
-      ethereum!.onChainChanged((accounts) {
-        clear();
-      });
-    }
-  }
-}
+//   bool get isConnected => isEnabled && currentAddress.isNotEmpty;
+
+//   Future<void> connect() async {
+//     if (isEnabled) {
+//       final accs = await ethereum!.requestAccount();
+//       if (accs.isNotEmpty) currentAddress = accs.first;
+
+//       currentChain = await ethereum!.getChainId();
+
+//       notifyListeners();
+//     }
+//   }
+
+//   clear() {
+//     currentAddress = '';
+//     currentChain = -1;
+//     notifyListeners();
+//   }
+
+//   init() {
+//     if (isEnabled) {
+//       ethereum!.onAccountsChanged((accounts) {
+//         clear();
+//       });
+//       ethereum!.onChainChanged((accounts) {
+//         clear();
+//       });
+//     }
+//   }
+// }
