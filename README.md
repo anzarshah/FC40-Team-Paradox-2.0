@@ -22,15 +22,26 @@ Prepared By : Prabhat Joshi , Anzar Shah ,Dinanshu Bishwas
 - The investor will buy token from our in which we will use smart contract . The smart contract governs all of the rules for how the crowd sale works and how the price is regulated.
 If a lot of people buys these tokens than we can list it exchange platform.
 
-
-
-
-##### Colour schema 
+##### Colour schema of The Platform
 
 ![image](./Doc/color.png)
 
+### WEB APP
 
 
+#### HOME PAGE
+![image](./Doc/homepage.png)
+#### ICO LIST 
+
+![image](./Doc/coin.png)
+#### COIN DESCRIPTION
+
+![image](./Doc/coin%20desc.png)
+
+
+
+
+### App Development
 
 ##### Product Database :
 
