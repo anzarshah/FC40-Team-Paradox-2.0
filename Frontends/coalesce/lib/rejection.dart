@@ -162,29 +162,30 @@ class _RejectionState extends State<Rejection> {
 
   //User data getter
   userDataGetter() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    var tokenCode = sharedPreferences.getString('token');
-    Map<String, String> header = {
-      "Accept": "application/json",
-      "Authorization": "Bearer $tokenCode"
-    };
+    // Web3Client ethClient;
+    // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    // var tokenCode = sharedPreferences.getString('token');
+    // Map<String, String> header = {
+    //   "Accept": "application/json",
+    //   "Authorization": "Bearer $tokenCode"
+    // };
 
-    var response = await http.get(Uri.parse(url + '/user'), headers: header);
-    var jsonData = json.decode(response.body);
-    if (response.statusCode == 200) {
-      setState(() {
-        sharedPreferences.setString('user_data_name', jsonData['name']);
-        sharedPreferences.setString('user_data_email', jsonData['email']);
-        sharedPreferences.setString(
-            'user_data_phone_number', jsonData['phone_number']);
-        username = sharedPreferences.getString('user_data_name');
-        email = sharedPreferences.getString('user_data_email');
-        userphno = sharedPreferences.getString('user_data_phone_number');
-      });
-    } else {
-      print(response.body);
-      Constants.snackBar("Something went wrong", context);
-    }
+    // var response = await http.get(Uri.parse(url + '/user'), headers: header);
+    // var jsonData = json.decode(response.body);
+    // if (response.statusCode == 200) {
+    //   setState(() {
+    //     sharedPreferences.setString('user_data_name', jsonData['name']);
+    //     sharedPreferences.setString('user_data_email', jsonData['email']);
+    //     sharedPreferences.setString(
+    //         'user_data_phone_number', jsonData['phone_number']);
+    //     username = sharedPreferences.getString('user_data_name');
+    //     email = sharedPreferences.getString('user_data_email');
+    //     userphno = sharedPreferences.getString('user_data_phone_number');
+    //   });
+    // } else {
+    //   print(response.body);
+    //   Constants.snackBar("Something went wrong", context);
+    // }
   }
   //End User Data Fetch
 
