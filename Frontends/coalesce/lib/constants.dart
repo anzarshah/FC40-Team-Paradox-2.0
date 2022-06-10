@@ -64,8 +64,8 @@ const Color white = Color(0xFFffffff);
 // const Color greyish = Color.fromARGB(0, 0, 0, 0);
 // const Color white = Color(0xFFffffff);
 
-const String url = "http://34.66.91.5/api/auth";
-const String ftp = "http://34.66.91.5/";
+const String url = "http://10.10.0.1:8080/api/auth";
+const String ftp = "http://10.10.0.1:8080/";
 const String AGORA_APP_ID = "b6dfb2b58ff440d3bd550f65d0ba11c6";
 
 const double defaultPadding = 16.0;

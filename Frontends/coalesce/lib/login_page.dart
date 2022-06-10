@@ -274,58 +274,54 @@ class _LoginPageState extends State<LoginPage>
 
   //Login Function
   logIn(String email, password) async {
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(
-            // builder: (BuildContext context) => MainPage()),
-            builder: (BuildContext context) => Approval()),
-        (Route<dynamic> route) => false);
-    // try {
-    //   _isLoading = true;
-    //   Map<String, String> data = {"email": email, "password": password};
-    //   Map<String, String> header = {
-    //     "Accept": "application/json",
-    //   };
-    //   var jsonData = null;
+    try {
+      _isLoading = true;
+      Map<String, String> data = {"username": email, "password": password};
+      Map<String, String> header = {
+        "Accept": "application/json",
+      };
+      var jsonData = null;
 
-    //   var response = await http.post(Uri.parse(url + "/login"),
-    //       body: data, headers: header);
-    //   jsonData = json.decode(response.body);
-    //   if (email == '' || password == '') {
-    //     snackBar("Fields cannot be left blank");
-    //     _isLoading = false;
-    //     setState(() {});
-    //   } else {
-    //     if (response.statusCode != 200) {
-    //       snackBar("Wrong credentials or account doesnt exist");
-    //       _isLoading = false;
-    //       setState(() {});
-    //     } else {
-    //       snackBar(
-    //           "Successfully Logged In ${intl.toBeginningOfSentenceCase(jsonData['username'])}");
-    //       setState(() async {
-    //         _isLoading = false;
-    //         // SharedPreferences.setMockInitialValues({});
-    //         SharedPreferences sharedPreferences =
-    //             await SharedPreferences.getInstance();
-    //         sharedPreferences.setString("token", jsonData['access_token']);
-    //         sharedPreferences.setString('user_data_name', jsonData['username']);
-    //         sharedPreferences.setString('user_data_email', jsonData['email']);
-    //         sharedPreferences.setString(
-    //             'user_data_phone_number', jsonData['phone_number']);
-    //         // Navigator.of(context).pushAndRemoveUntil(
-    //         //     MaterialPageRoute(
-    //         //         // builder: (BuildContext context) => MainPage()),
-    //         //         builder: (BuildContext context) => MainArrange()),
-    //         //     (Route<dynamic> route) => false);
-    //       });
-    //     }
-    //   }
-    // } on Exception catch (e) {
-    //   snackBar("Something went Wrong");
-    //   setState(() {
-    //     _isLoading = false;
-    //   });
-    // }
+      var response = await http.post(Uri.parse(url + "/signin"),
+          body: data, headers: header);
+      jsonData = json.decode(response.body);
+      print(response.body);
+      if (email == '' || password == '') {
+        snackBar("Fields cannot be left blank");
+        _isLoading = false;
+        setState(() {});
+      } else {
+        if (response.statusCode != 200) {
+          snackBar("Wrong credentials or account doesnt exist");
+          _isLoading = false;
+          setState(() {});
+        } else {
+          snackBar(
+              "Successfully Logged In ${intl.toBeginningOfSentenceCase(jsonData['username'])}");
+          setState(() async {
+            _isLoading = false;
+            // SharedPreferences.setMockInitialValues({});
+            SharedPreferences sharedPreferences =
+                await SharedPreferences.getInstance();
+            sharedPreferences.setString("token", jsonData['access_token']);
+            sharedPreferences.setString('user_data_name', jsonData['username']);
+            sharedPreferences.setString('user_data_email', jsonData['email']);
+            sharedPreferences.setString(
+                'user_data_phone_number', jsonData['phone_number']);
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                    // builder: (BuildContext context) => MainPage()),
+                    builder: (BuildContext context) => MainPage()),
+                (Route<dynamic> route) => false);
+          });
+        }
+      }
+    } on Exception catch (e) {
+      snackBar("Something went Wrong");
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
 //Signup section
@@ -346,10 +342,10 @@ class _LoginPageState extends State<LoginPage>
               padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               child: signupTextEmail("Email", Icons.email),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: defaultPadding),
-              child: signupPhoneNo("Phone Number", Icons.email),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            //   child: signupPhoneNo("Phone Number", Icons.email),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               child: signupTextPassword("Password", Icons.email),
@@ -371,21 +367,24 @@ class _LoginPageState extends State<LoginPage>
       _isLoading = false;
       Map<String, String> data = {
         "email": email,
-        "name": name,
-        "phone_number": phoneno,
+        "username": name,
+        // "phone_number": "234567890",
         "password": password,
-        "password_confirmation": passwordc
+        // "password_confirmation": passwordc,
       };
       Map<String, String> header = {
         "Accept": "application/json",
       };
+      print(data);
       var jsonData = null;
       var errors;
-      var response = await http.post(Uri.parse(url + "/signup"),
+
+      var response = await http.post(Uri.parse(url + "/Signup"),
           body: data, headers: header);
       jsonData = json.decode(response.body);
 
-      print("object");
+      print(response.body);
+      snackBar("Signing Up");
 
       if (email == '' ||
           name == '' ||
