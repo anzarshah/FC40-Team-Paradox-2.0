@@ -14,5 +14,5 @@ working on that
 
  Dependecies :
 Ganache ,Truffle, web3.js ,Open-zeppelin ,Metamask, Node ,Angular
-![image](https://user-images.githubusercontent.com/61198659/173008911-563a7d8c-a416-4418-a019-533a5a93458b.png)
+![image](https://user-images.githubusercontent.com/61198659/173009126-132c8458-8745-4a44-b1d6-c20ce757b34a.png)
 
