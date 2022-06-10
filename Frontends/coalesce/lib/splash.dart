@@ -2,7 +2,7 @@ import 'dart:async';
 
 // import 'package:dhatnoon/MainArrange.dart';
 import 'package:coalesce/constants.dart';
-import 'package:coalesce/mainpage.dart';
+import 'package:coalesce/login_page.dart';
 // import 'package:dhatnoon/loginpage.dart';
 // import 'package:dhatnoon/mainpage.dart';
 import 'package:flutter/material.dart';

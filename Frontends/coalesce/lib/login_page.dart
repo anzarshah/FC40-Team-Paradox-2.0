@@ -1,5 +1,10 @@
 // import 'package:dhatnoon/Loadingpage/loadingpage.dart';
 // import 'package:dhatnoon/MainArrange.dart';
+import 'package:coalesce/apply_for_ico.dart';
+import 'package:coalesce/approval.dart';
+import 'package:coalesce/approval_in_process.dart';
+import 'package:coalesce/main_page.dart';
+import 'package:coalesce/rejection.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -8,7 +13,7 @@ import 'dart:math';
 import 'dart:developer';
 import 'package:intl/intl.dart' as intl;
 import 'constants.dart';
-import 'mainpage.dart';
+import 'login_page.dart';
 import 'dart:io';
 // import 'Mainpage/Design/utils/theme.dart';
 // import 'Mainpage/Design/utils/DarkThemeProvider.dart';
@@ -206,7 +211,7 @@ class _LoginPageState extends State<LoginPage>
                                     vertical: defaultPadding * 0.75),
                                 width: 160,
                                 child: Text('SIGN UP',
-                                    style: TextStyle(color: golden)),
+                                    style: TextStyle(color: white)),
                               ),
                             ),
                           )))
@@ -269,53 +274,58 @@ class _LoginPageState extends State<LoginPage>
 
   //Login Function
   logIn(String email, password) async {
-    try {
-      _isLoading = true;
-      Map<String, String> data = {"email": email, "password": password};
-      Map<String, String> header = {
-        "Accept": "application/json",
-      };
-      var jsonData = null;
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+            // builder: (BuildContext context) => MainPage()),
+            builder: (BuildContext context) => Approval()),
+        (Route<dynamic> route) => false);
+    // try {
+    //   _isLoading = true;
+    //   Map<String, String> data = {"email": email, "password": password};
+    //   Map<String, String> header = {
+    //     "Accept": "application/json",
+    //   };
+    //   var jsonData = null;
 
-      var response = await http.post(Uri.parse(url + "/login"),
-          body: data, headers: header);
-      jsonData = json.decode(response.body);
-      if (email == '' || password == '') {
-        snackBar("Fields cannot be left blank");
-        _isLoading = false;
-        setState(() {});
-      } else {
-        if (response.statusCode != 200) {
-          snackBar("Wrong credentials or account doesnt exist");
-          _isLoading = false;
-          setState(() {});
-        } else {
-          snackBar(
-              "Successfully Logged In ${intl.toBeginningOfSentenceCase(jsonData['username'])}");
-          setState(() async {
-            _isLoading = false;
-            // SharedPreferences.setMockInitialValues({});
-            SharedPreferences sharedPreferences =
-                await SharedPreferences.getInstance();
-            sharedPreferences.setString("token", jsonData['access_token']);
-            sharedPreferences.setString('user_data_name', jsonData['username']);
-            sharedPreferences.setString('user_data_email', jsonData['email']);
-            sharedPreferences.setString(
-                'user_data_phone_number', jsonData['phone_number']);
-            // Navigator.of(context).pushAndRemoveUntil(
-            //     MaterialPageRoute(
-            //         // builder: (BuildContext context) => MainPage()),
-            //         builder: (BuildContext context) => MainArrange()),
-            //     (Route<dynamic> route) => false);
-          });
-        }
-      }
-    } on Exception catch (e) {
-      snackBar("Something went Wrong");
-      setState(() {
-        _isLoading = false;
-      });
-    }
+    //   var response = await http.post(Uri.parse(url + "/login"),
+    //       body: data, headers: header);
+    //   jsonData = json.decode(response.body);
+    //   if (email == '' || password == '') {
+    //     snackBar("Fields cannot be left blank");
+    //     _isLoading = false;
+    //     setState(() {});
+    //   } else {
+    //     if (response.statusCode != 200) {
+    //       snackBar("Wrong credentials or account doesnt exist");
+    //       _isLoading = false;
+    //       setState(() {});
+    //     } else {
+    //       snackBar(
+    //           "Successfully Logged In ${intl.toBeginningOfSentenceCase(jsonData['username'])}");
+    //       setState(() async {
+    //         _isLoading = false;
+    //         // SharedPreferences.setMockInitialValues({});
+    //         SharedPreferences sharedPreferences =
+    //             await SharedPreferences.getInstance();
+    //         sharedPreferences.setString("token", jsonData['access_token']);
+    //         sharedPreferences.setString('user_data_name', jsonData['username']);
+    //         sharedPreferences.setString('user_data_email', jsonData['email']);
+    //         sharedPreferences.setString(
+    //             'user_data_phone_number', jsonData['phone_number']);
+    //         // Navigator.of(context).pushAndRemoveUntil(
+    //         //     MaterialPageRoute(
+    //         //         // builder: (BuildContext context) => MainPage()),
+    //         //         builder: (BuildContext context) => MainArrange()),
+    //         //     (Route<dynamic> route) => false);
+    //       });
+    //     }
+    //   }
+    // } on Exception catch (e) {
+    //   snackBar("Something went Wrong");
+    //   setState(() {
+    //     _isLoading = false;
+    //   });
+    // }
   }
 
 //Signup section
@@ -564,10 +574,10 @@ class _LoginPageState extends State<LoginPage>
         style: TextStyle(color: Colors.white70),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xFF00C470), width: 1.0),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xFF00C470), width: 2.0),
+            borderSide: const BorderSide(color: Colors.white, width: 2.0),
           ),
           labelText: title,
           labelStyle: TextStyle(
