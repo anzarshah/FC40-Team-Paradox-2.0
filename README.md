@@ -4,6 +4,8 @@ Project Title : Coalesce.
 
 Date: 10/06/2022                                Prepared By : Prabhat Joshi , Anzar Shah ,Dinanshu Bishwas
 
+![image](./Doc/Coalesce.png)
+
 Colour schema 
 
 
@@ -11,9 +13,10 @@ Product Database :
 working on that
     
  TECH STACK :
-![image](https://user-images.githubusercontent.com/61198659/173008871-948d65e5-f1d9-4f75-9c5a-386c41d5d4e1.png)
+![image](./Doc/tech.jpeg)
 
  Dependecies :
 Ganache ,Truffle, web3.js ,Open-zeppelin ,Metamask, Node ,Angular
-![image](https://user-images.githubusercontent.com/61198659/173009126-132c8458-8745-4a44-b1d6-c20ce757b34a.png)
+![image](./Doc/depend.jpeg)
+
 
