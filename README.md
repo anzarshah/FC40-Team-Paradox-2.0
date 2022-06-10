@@ -4,6 +4,7 @@ Project Title : Coalesce.
 
 Date: 10/06/2022                                Prepared By : Prabhat Joshi , Anzar Shah ,Dinanshu Bishwas
 
+Colour schema 
 
 
 Product Database :
