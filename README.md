@@ -27,7 +27,7 @@ If a lot of people buys these tokens than we can list it exchange platform.
 
 ##### Colour schema 
 
-![image](./Doc/Coalesce.png)
+![image](./Doc/color.png)
 
 
 
