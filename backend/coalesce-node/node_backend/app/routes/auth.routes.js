@@ -19,4 +19,5 @@ module.exports = function(app) {
   );
   app.post("/api/auth/signin", controller.signin);
   app.post("/api/auth/data_fill", controller_company.data);
+  app.post("/api/auth/data_fetch", controller_company.get);
 };

@@ -1,4 +1,5 @@
 // import 'package:dhatnoon/MainArrange.dart';
+import 'package:coalesce/check.dart';
 import 'package:coalesce/main_page.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -86,12 +87,12 @@ class _NavPageState extends State<NavPage> {
             image: DecorationImage(
                 // fit: BoxFit.fill, image: AssetImage('images/bg_header.jpeg')
                 fit: BoxFit.fill,
-                image: Image.asset('assets/bg.jpg').image)),
+                image: Image.asset('assets/logo.jpeg').image)),
         child: Stack(children: <Widget>[
           Positioned(
               bottom: 12.0,
               left: 16.0,
-              child: Text("Dhatnoon",
+              child: Text("Coalesce",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 35.0,
