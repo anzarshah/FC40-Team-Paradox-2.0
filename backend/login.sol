@@ -13,6 +13,8 @@ contract SimpleStorage {
         emit ValueChanged(value, _value);
         value = _value;
     }
+
+    function getvalue()
 }
 
 }
