@@ -6,16 +6,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'constants.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ApplyForICO extends StatefulWidget {
-  const ApplyForICO({Key? key}) : super(key: key);
+class IcoCheck extends StatefulWidget {
+  const IcoCheck({Key? key}) : super(key: key);
 
   @override
-  _ApplyForICOState createState() => _ApplyForICOState();
+  _IcoCheckState createState() => _IcoCheckState();
 }
 
-class _ApplyForICOState extends State<ApplyForICO> {
+class _IcoCheckState extends State<IcoCheck> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   bool _isLoading = false;
@@ -50,7 +49,7 @@ class _ApplyForICOState extends State<ApplyForICO> {
           ),
         ),
         backgroundColor: Colors.transparent,
-        title: Text("Apply for ICO", style: TextStyle(color: greyish)),
+        title: Text("Application approved", style: TextStyle(color: greyish)),
         elevation: 0,
       ),
       body: Container(
@@ -98,26 +97,30 @@ class _ApplyForICOState extends State<ApplyForICO> {
             SizedBox(
               height: 10,
             ),
-            Text(
-              "You have not yet applied for ICO",
-              style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.black45,
-                  letterSpacing: 2.0,
-                  fontWeight: FontWeight.w300),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                "Your application is approved and your ICO is under generation. Sit back and relax while we do the hard work for you.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.black45,
+                    letterSpacing: 2.0,
+                    fontWeight: FontWeight.w300),
+              ),
             ),
 
             SizedBox(
               height: 10,
             ),
-            Text(
-              "Do it now?",
-              style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black45,
-                  letterSpacing: 2.0,
-                  fontWeight: FontWeight.w300),
-            ),
+            // Text(
+            //   "Do it now?",
+            //   style: TextStyle(
+            //       fontSize: 15.0,
+            //       color: Colors.black45,
+            //       letterSpacing: 2.0,
+            //       fontWeight: FontWeight.w300),
+            // ),
             SizedBox(
               height: 100,
             ),
@@ -133,16 +136,16 @@ class _ApplyForICOState extends State<ApplyForICO> {
                         style: BorderStyle.solid,
                       ),
                     ),
-                    onPressed: () async {
-                      await launch(
-                          'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
+                    onPressed: () {
+                      // logOut();
+                      Navigator.of(context).pop();
                     },
                     child: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                           child: Text(
-                            'Apply for ICO',
+                            'Logout',
                             style: TextStyle(fontSize: 20, color: greyish),
                           ),
                         ),

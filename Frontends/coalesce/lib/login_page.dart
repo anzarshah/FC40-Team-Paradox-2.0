@@ -3,6 +3,7 @@
 import 'package:coalesce/apply_for_ico.dart';
 import 'package:coalesce/approval.dart';
 import 'package:coalesce/approval_in_process.dart';
+import 'package:coalesce/check.dart';
 import 'package:coalesce/main_page.dart';
 import 'package:coalesce/rejection.dart';
 import 'package:flutter/material.dart';
@@ -310,7 +311,7 @@ class _LoginPageState extends State<LoginPage>
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(
                     // builder: (BuildContext context) => MainPage()),
-                    builder: (BuildContext context) => MainPage()),
+                    builder: (BuildContext context) => CheckPage()),
                 (Route<dynamic> route) => false);
           });
         }

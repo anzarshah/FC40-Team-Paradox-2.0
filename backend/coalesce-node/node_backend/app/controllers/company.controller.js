@@ -40,3 +40,56 @@ exports.data = (req, res) => {
         });
 };
 
+// exports.get = (req, res) => {
+//     // Save User to Database
+//     // var sdf = Company.findOne({
+//     //     user_id: req.body.user_id,
+//     // }).then(
+//     //         // res.send({ message: "user Data!"})
+//     // )
+//     // res.send({ message: sdf})
+
+
+//     //     .catch(err => {
+//     //         res.status(500).send({ message: err.message });
+//     //     });
+
+
+
+//         Company.findOne({
+//             where: {
+//                 user_id: req.body.user_id
+//             }
+//         })
+//             .then(comp => {
+//                     res.status(200).send({
+//                         data: Company.findOne({
+//                             where: {
+//                                 user_id: req.body.user_id
+//                             }
+//                         })
+//                     });
+//             })
+//             .catch(err => {
+//                 res.status(500).send({ message: err.message });
+//             });
+// };
+
+exports.get = (req, res) => {
+    const id = req.body.user_id
+  
+    Company.findOne({
+        where: {
+            user_id: req.body.user_id
+        }
+    })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error retrieving Tutorial with id=" + id
+        });
+      });
+  };
+
