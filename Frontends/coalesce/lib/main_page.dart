@@ -22,12 +22,25 @@ class _MainPageState extends State<MainPage> {
   String? email = '';
   String? userphno = '';
 
+  bool apply_for_ico = false;
+  bool approval_in_process = false;
+  bool approval = false;
+  bool rejection = false;
+  bool main = false;
+
   late Size _size;
 
   @override
   void initState() {
     userDataGetter();
     super.initState();
+    checker();
+  }
+
+  void checker() {
+    if true{
+      this.main = true;
+    }
   }
 
   @override
@@ -51,6 +64,24 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.transparent,
         title: Text("Information", style: TextStyle(color: greyish)),
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.refresh_outlined,
+              color: golden,
+            ),
+            onPressed: () {
+              setState(() {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        // builder: (BuildContext context) => MainPage()),
+                        builder: (BuildContext context) => MainPage()),
+                    (Route<dynamic> route) => false);
+              });
+              // do something
+            },
+          )
+        ],
       ),
       body: Container(
           child: _isLoading
@@ -64,7 +95,7 @@ class _MainPageState extends State<MainPage> {
 
 //Body builder content
 
-  bodyContent() {
+  mainBodyContent() {
     return Container(
       child: Center(
         child: Column(
@@ -78,7 +109,7 @@ class _MainPageState extends State<MainPage> {
               child: Container(
                 alignment: Alignment(0.0, 2.5),
                 child: CircleAvatar(
-                  backgroundImage: Image.asset('assets/logo.png').image,
+                  backgroundImage: Image.asset('assets/logo.jpeg').image,
                   radius: 60.0,
                 ),
               ),

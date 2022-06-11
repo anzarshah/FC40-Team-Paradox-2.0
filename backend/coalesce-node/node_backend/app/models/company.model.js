@@ -1,30 +1,27 @@
 module.exports = (sequelize, Sequelize) => {
     const Company = sequelize.define("companies", {
-        comp_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true
-        },
+
         user_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'users',
-                key: 'id'
-            } // <<< Note, its a column name
+            type: Sequelize.INTEGER,// <<< Note, its a column name
         },
         name: {
             type: Sequelize.STRING
         },
-        email: {
-            type: Sequelize.STRING
+        whitepaper_check: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         },
-        password: {
-            type: Sequelize.STRING
+        approval_check: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         },
-        verify_flag: {
-            type: Sequelize.INTEGER
+        accept_deny_check: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         },
         ico_creation_flag: {
-            type: Sequelize.STRING
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         },
     });
     return Company;

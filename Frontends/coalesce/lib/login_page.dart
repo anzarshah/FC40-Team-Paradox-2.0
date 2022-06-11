@@ -103,14 +103,14 @@ class _LoginPageState extends State<LoginPage>
                         : _size.width * 0.06,
                     child: _isShowSignUp
                         ? Text(
-                            'COALESCE',
+                            '',
                             style: TextStyle(
                                 color: Color(0xFF00C470),
                                 fontSize: 45,
                                 fontWeight: FontWeight.bold),
                           )
                         : Text(
-                            'COALESCE',
+                            '',
                             style: TextStyle(
                                 color: Color(0xFF00C470),
                                 fontSize: 45,
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage>
                       behavior: HitTestBehavior.translucent,
                       onTap: updateView,
                       child: Container(
-                        color: secondary,
+                        color: white,
                         child: loginForm(),
                       ),
                     ),
@@ -303,11 +303,10 @@ class _LoginPageState extends State<LoginPage>
             // SharedPreferences.setMockInitialValues({});
             SharedPreferences sharedPreferences =
                 await SharedPreferences.getInstance();
-            sharedPreferences.setString("token", jsonData['access_token']);
+            sharedPreferences.setString("token", jsonData['accessToken']);
             sharedPreferences.setString('user_data_name', jsonData['username']);
             sharedPreferences.setString('user_data_email', jsonData['email']);
-            sharedPreferences.setString(
-                'user_data_phone_number', jsonData['phone_number']);
+            sharedPreferences.setString('user_id', jsonData['id'].toString());
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(
                     // builder: (BuildContext context) => MainPage()),
@@ -387,10 +386,12 @@ class _LoginPageState extends State<LoginPage>
       snackBar("Signing Up");
 
       if (email == '' ||
-          name == '' ||
-          phoneno == '' ||
-          password == '' ||
-          passwordc == '') {
+              name == '' ||
+              // phoneno == '' ||
+              password == ''
+          // ||
+          // passwordc == ''
+          ) {
         snackBar("Fields cannot be left blank");
         _isLoading = false;
         setState(() {});
@@ -439,8 +440,8 @@ class _LoginPageState extends State<LoginPage>
   TextFormField loginTextEmail(String title, IconData icon) {
     return TextFormField(
         controller: loginEmailController,
-        cursorColor: Colors.white,
-        style: TextStyle(color: Colors.white70),
+        cursorColor: greyish,
+        style: TextStyle(color: greyish),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: greyish, width: 1.0),
@@ -461,8 +462,8 @@ class _LoginPageState extends State<LoginPage>
     return TextFormField(
         controller: loginPasswordController,
         obscureText: true,
-        cursorColor: Colors.white,
-        style: TextStyle(color: Colors.white70),
+        cursorColor: greyish,
+        style: TextStyle(color: greyish),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: greyish, width: 1.0),

@@ -47,11 +47,14 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Image.asset(
-          "assets/splash.png",
-          // width: 100,
-          // height: 100,
-          fit: BoxFit.fitWidth,
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Image.asset(
+            "assets/splash.jpeg",
+            // width: 100,
+            // height: 100,
+            fit: BoxFit.fitWidth,
+          ),
         ),
         // child: Text(
         //   'DHATNOON',

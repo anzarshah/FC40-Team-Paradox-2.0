@@ -51,18 +51,18 @@ class Constants {
   }
 }
 
-const Color primary = Color(0xFF365623);
-const Color secondary = Color(0xFFD8E2D1);
-const Color golden = Color(0xFFcc9004);
-const Color greyish = Color(0xFF6c6c6c);
-const Color white = Color(0xFFffffff);
+// const Color primary = Color(0xFF365623);
+// const Color secondary = Color(0xFFD8E2D1);
+// const Color golden = Color(0xFFcc9004);
+// const Color greyish = Color(0xFF6c6c6c);
+// const Color white = Color(0xFFffffff);
 // const String url = "http://10.10.0.1:8000/api/auth";
 // const String ftp = "http://10.10.0.1:8000/";
-// const Color primary = Color(0xFF5D1623);
-// const Color secondary = Color(0xFFAD3878);
-// const Color golden = Color(0xFF85274E);
-// const Color greyish = Color.fromARGB(0, 0, 0, 0);
-// const Color white = Color(0xFFffffff);
+const Color primary = Color(0xFF5D1623);
+const Color secondary = Color(0xFFAD3878);
+const Color golden = Color(0xFF85274E);
+const Color greyish = Color(0xFF000000);
+const Color white = Color(0xFFffffff);
 
 const String url = "http://10.10.0.1:8080/api/auth";
 const String ftp = "http://10.10.0.1:8080/";

@@ -8,20 +8,20 @@ module.exports = function (app) {
         );
         next();
     });
-    app.get("/api/test/all", controller.allAccess);
-    app.get(
+    app.post("/api/test/all", controller.allAccess);
+    app.post(
         "/api/test/user",
-        [authJwt.verifyToken],
+        // [authJwt.verifyToken],
         controller.userBoard
     );
-    app.get(
+    app.post(
         "/api/test/mod",
-        [authJwt.verifyToken, authJwt.isModerator],
+        // [authJwt.verifyToken, authJwt.isModerator],
         controller.moderatorBoard
     );
-    app.get(
+    app.post(
         "/api/test/admin",
-        [authJwt.verifyToken, authJwt.isAdmin],
+        // [authJwt.verifyToken, authJwt.isAdmin],
         controller.adminBoard
     );
 };
