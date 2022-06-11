@@ -133,9 +133,9 @@ class _ApplyForICOState extends State<ApplyForICO> {
                         style: BorderStyle.solid,
                       ),
                     ),
-                    onPressed: () {
-                      await launch('https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
-\
+                    onPressed: () async {
+                      await launch(
+                          'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
                     },
                     child: Column(
                       children: [
